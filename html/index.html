@@ -10,9 +10,49 @@
 	<link rel="stylesheet" href="assets/css/uikit.min.css" />
 	<script src="assets/js/uikit.min.js"></script>
 	<script src="assets/js/uikit-icons.min.js"></script>
-
+	<style>
+		button{border-radius: 10px!important;}
+	</style>
 </head>
 <body>
-Welcome
+	<div uk-grid>
+			<div class="uk-align-center uk-width-1-2 uk-background-primary">
+				<p class="uk-text-center uk-text-large uk-text-capitalize" style="color: white">hub playlist</p>
+			</div>
+	</div>
+	<div uk-grid>
+		<hr class="uk-divider-icon uk-width-1-2 uk-align-center">
+	</div>
+	<div uk-grid>
+			<div class="uk-card uk-card-default uk-align-center uk-width-1-2">
+				<img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg" alt="">
+			</div>
+	</div>
+	<div uk-grid>
+		<div class="uk-align-center">
+			<p class="uk-text-small">
+				Built by Bastien HUGON / Antoine VIVIES
+			</p>
+		</div>
+	</div>
+	<div uk-grid>
+		<button uk-toggle="target: #addSong" class="uk-align-center uk-width-1-2 uk-text-large uk-text-capitalize uk-button uk-button-danger">
+			add song
+		</button>
+	</div>
 </body>
+
+<div id="addSong" uk-modal>
+	<div class="uk-modal-dialog uk-modal-body">
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<h2 class="uk-modal-title">Add your song !</h2>
+		<hr class="uk-divider-icon">
+		<input class="uk-input" type="text" placeholder="Paste your YT link">
+		<button class="uk-align-center uk-width-1-2 uk-text-large uk-text-capitalize uk-button uk-button-danger">
+				Add IT !
+		</button>
+	</div>
+</div>
+
+</div>
 </html>
