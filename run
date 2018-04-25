@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Server launched..."
+node server.js
