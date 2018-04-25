@@ -13,7 +13,7 @@ console.log = function(d) {
 };
 
 // Launch Express Servee
-server.listen(80, function () {
+server.listen(8080, function () {
 	console.log('Server running on port 80');
 });
 
