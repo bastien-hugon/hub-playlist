@@ -12,6 +12,7 @@ io.on('connection', function (socket) {
 	});
 
 	socket.on('nextMusic', function(data){
+		io.emit('updateMusic', music);
 		io.emit('nextMusic', music);
 	});
 
