@@ -1,3 +1,6 @@
+var sys = require('sys')
+var exec = require('child_process').exec;
+
 /**
  * API Socket.IO 
  */
@@ -21,15 +24,8 @@ io.on('connection', function (socket) {
 	});
 
 	socket.on('restart', function(){
-		'use strict';
-
-		const
-			{ spawnSync } = require( 'child_process' ),
-			ls = spawnSync( 'reboot', [ ] );
-	
-		console.log( `stderr: ${ls.stderr.toString()}` );
-		console.log( `stdout: ${ls.stdout.toString()}` );
-	
+		function puts(error, stdout, stderr) { sys.puts(stdout) }
+		exec("reboot", puts);
 	});
 
 });
