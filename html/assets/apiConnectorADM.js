@@ -107,6 +107,7 @@ $('#next').click(function(e){
 	player.loadVideoById(music[1], 0, "large");
 	music.shift();
 	socket.emit('updateMusic', music);
+	socket.emit('getMusic', null);
 })
 
 $('#restart').click(function(e){
