@@ -40,7 +40,6 @@ socket.on('getMusic', function(data){
 });
 
 socket.on('updateMusic', function (data) {
-	console.log(music)
 	if (music.length == 0) {
 		music = data;
 		console.log(music)
@@ -102,3 +101,15 @@ function updateMusic()
 		})
 	}, 200);
 }
+
+$('#next').click(function(e){
+	e.preventDefault();
+	player.loadVideoById(music[1], 0, "large");
+	music.shift();
+	socket.emit('updateMusic', music);
+})
+
+$('#restart').click(function(e){
+	e.preventDefault();
+	socket.emit('restart', null);
+});

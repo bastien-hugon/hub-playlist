@@ -31,7 +31,6 @@ function updateMusic()
 			render +=	'<div class="uk-card-media-left uk-cover-container">';
 			url = (data.items[0].snippet.thumbnails.standard !== undefined) ? (data.items[0].snippet.thumbnails.standard.url) : (data.items[0].snippet.thumbnails.default.url);
 			render +=		'<img src="'+url+'" alt="" uk-cover>';
-			//render +=		'<canvas width="600" height="400"></canvas>';
 			render +=	'</div>';
 			render +=	'<div>';
 			render +=	'<div class="uk-card-body">';

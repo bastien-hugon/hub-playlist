@@ -19,4 +19,17 @@ io.on('connection', function (socket) {
 		music.push(tmp);
 		io.emit('updateMusic', music);
 	});
+
+	socket.on('restart', function(){
+		'use strict';
+
+		const
+			{ spawnSync } = require( 'child_process' ),
+			ls = spawnSync( 'reboot', [ ] );
+	
+		console.log( `stderr: ${ls.stderr.toString()}` );
+		console.log( `stdout: ${ls.stdout.toString()}` );
+	
+	});
+
 });
