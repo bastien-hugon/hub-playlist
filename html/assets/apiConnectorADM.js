@@ -40,16 +40,7 @@ socket.on('getMusic', function(data){
 });
 
 socket.on('nextMusic', function(data){
-	music = data;
-	player = new YT.Player('player', {
-		height: '480',
-		width: '100%',
-		videoId: data[0],
-		events: {
-			'onReady': onPlayerReady,
-			'onStateChange': onPlayerStateChange
-		}
-	});
+	player.loadVideoById(music[0], 0, "large");
 	updateMusic();
 });
 
@@ -118,7 +109,6 @@ function updateMusic()
 
 $('#next').click(function(e){
 	e.preventDefault();
-	player.loadVideoById(music[1], 0, "large");
 	music.shift();
 	socket.emit('updateMusic', music);
 	socket.emit('nextMusic', null);
