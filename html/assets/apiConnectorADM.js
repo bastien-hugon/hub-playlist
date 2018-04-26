@@ -39,6 +39,20 @@ socket.on('getMusic', function(data){
 	updateMusic();
 });
 
+socket.on('nextMusic', function(data){
+	music = data;
+	player = new YT.Player('player', {
+		height: '480',
+		width: '100%',
+		videoId: data[0],
+		events: {
+			'onReady': onPlayerReady,
+			'onStateChange': onPlayerStateChange
+		}
+	});
+	updateMusic();
+});
+
 socket.on('updateMusic', function (data) {
 	if (music.length == 0) {
 		music = data;
@@ -107,7 +121,7 @@ $('#next').click(function(e){
 	player.loadVideoById(music[1], 0, "large");
 	music.shift();
 	socket.emit('updateMusic', music);
-	socket.emit('getMusic', null);
+	socket.emit('nextMusic', null);
 })
 
 $('#restart').click(function(e){
