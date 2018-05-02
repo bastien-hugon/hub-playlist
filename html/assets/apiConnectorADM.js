@@ -1,9 +1,9 @@
 var socket = io.connect();
 var music = [];
 
-var password = prompt("Admin Password:");
+//var password = prompt("Admin Password:");
 
-socket.emit('pwd', password);
+//socket.emit('pwd', password);
 
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/player_api";
@@ -16,9 +16,9 @@ function onYouTubePlayerAPIReady() {
 
 var player;
 
-socket.on('pwd', function(data){
-	console.log(data);
-	if (data == true) {
+//socket.on('pwd', function(data){
+//	console.log(data);
+//	if (data == true) {
 
 		function onPlayerReady(){
 			player.loadVideoById(music[0], 0, "large");
@@ -108,7 +108,3 @@ socket.on('pwd', function(data){
 			player.setVolume(data);
 		});
 
-	} else {
-		window.location.reload();
-	}
-});
