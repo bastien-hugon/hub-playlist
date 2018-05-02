@@ -1,11 +1,28 @@
 var sys = require('sys')
 var exec = require('child_process').exec;
-
+var crypto = require('crypto');
 /**
  * API Socket.IO 
  */
 var music = [];
 io.on('connection', function (socket) {
+
+	socket.on('pwd', function(pass){
+		var hash = crypto.createHash('sha256').update(pass).digest('base64');
+		socket.emit('pwd', hash == "BgMEpx4tNo19/i1I+qUFURv392zFmyFiQ0jEj2XHDbA=");
+	});
+
+	socket.on('pause', function(){
+		io.emit('pause', true);
+	});
+
+	socket.on('play', function(){
+		io.emit('play', true);
+	});
+
+	socket.on('setVolume', function(data){
+		io.emit('setVolume', data);
+	});
 
 	socket.on('getMusic', function(data){
 		socket.emit('getMusic', music);
