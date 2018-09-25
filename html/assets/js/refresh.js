@@ -6,7 +6,7 @@ function updateMusic()
 	var renders = []
 	music.forEach(song => {
 		var index = i;
-		$.get("https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id="+ song +"&key=AIzaSyBWS5aaowzg3iRSV0KaDIhlO__KAjcY2hc", function(data){
+		$.get("https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id="+ song +"&key=AIzaSyBWS5aaowzg3iRSV0KaDIhlO__KAjcY2hc", {async: false}, function(data){
 			if (!index)
 				render  = '<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-background-secondary" uk-grid>';
 			else
@@ -32,12 +32,13 @@ function updateMusic()
 				render +='<hr class="uk-divider-icon">';
 			
 			renders[index] = render;
+			$("#songs").append(render);
 		});
 		i++;
 	});
-	setTimeout(() => {
+/* 	setTimeout(() => {
 		renders.forEach(render => {
 			$("#songs").append(render);
 		})
-	}, 200);
-}
+	}, 500);
+ */}

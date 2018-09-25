@@ -5,6 +5,8 @@ var crypto = require('crypto');
  * API Socket.IO 
  */
 var music = [];
+var history = [];
+
 io.on('connection', function (socket) {
 
 	socket.on('pwd', function(pass){
@@ -29,8 +31,8 @@ io.on('connection', function (socket) {
 	});
 
 	socket.on('nextMusic', function(data){
-		io.emit('updateMusic', music);
 		io.emit('nextMusic', music);
+		io.emit('updateMusic', music);
 	});
 
 	socket.on('updateMusic', function(data){
@@ -39,14 +41,14 @@ io.on('connection', function (socket) {
 	});
 
 	socket.on('addMusic', function(data){
-
 		tmp = data.split('/')[3].split('watch?v=')[1];
 		music.push(tmp);
+		history.push(tmp);
 		io.emit('updateMusic', music);
 	});
 
 	socket.on('restart', function(){
-		function puts(error, stdout, stderr) { sys.puts(stdout) }
+		function puts(error, stdout, stderr) { sys.puts(stdout) };
 		exec("reboot", puts);
 	});
 

@@ -22,12 +22,6 @@
 		<div uk-grid>
 			<hr class="uk-divider-icon uk-width-1-2 uk-align-center">
 		</div>
-		<div uk-grid>
-			<div class="uk-card uk-card-default uk-align-center uk-width-1-2">
-				<div id="player"></div>
-			</div>
-			<br>
-		</div>
 
 		<div uk-grid>
 				<div class="uk-card uk-card-default uk-align-center uk-width-1-2" style="padding: 15px">
@@ -37,19 +31,12 @@
 					<button class="uk-button uk-button-secondary" id="pause">Stop</button>
 					<input class="uk-range" type="range" value="100" min="0" id="volume-input" max="100" step="1">
 				</div>
-		</div>
-
-		<div uk-grid>
-			<div class="uk-card uk-card-default uk-align-center uk-width-1-2" id="songs">
-				
-			</div>
-		</div>
-		
+		</div>		
 	
 		<div uk-grid>
 			<div class="uk-align-center">
 			<p class="uk-text-small">
-				Built by Bastien HUGON / Antoine VIVIES
+				Built for the Epitech Innovation Hub
 			</p>
 		</div>
 	</div>
@@ -71,7 +58,10 @@
 		</form>
 	</div>
 </div>
-	<script src="/assets/apiConnectorADM.js"></script>
+	<script>
+		ROLE = 1;
+	</script>
+	<script src="/assets/api.js"></script>
 	<script src="/assets/js/refresh.js"></script>
 </div>
 </html>

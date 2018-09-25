@@ -23,14 +23,23 @@
 			<hr class="uk-divider-icon uk-width-1-2 uk-align-center">
 		</div>
 		<div uk-grid>
-			<div class="uk-card uk-card-default uk-align-center uk-width-1-2" id="songs">
+			<div class="uk-card uk-card-default uk-align-center uk-width-1-2">
+				<div id="player"></div>
+			</div>
+			<br>
+		</div>
 
+		<div uk-grid>
+			<div class="uk-card uk-card-default uk-align-center uk-width-1-2" id="songs">
+				
 			</div>
 		</div>
+		
+	
 		<div uk-grid>
 			<div class="uk-align-center">
 			<p class="uk-text-small">
-				Built by Bastien HUGON / Antoine VIVIES
+				Built for the Epitech Innovation Hub
 			</p>
 		</div>
 	</div>
@@ -41,17 +50,6 @@
 	</div>
 </body>
 
-<div id="addSong" uk-modal>
-	<div class="uk-modal-dialog uk-modal-body">
-		<button class="uk-modal-close-default" type="button" uk-close></button>
-		<h2 class="uk-modal-title">Add your song !</h2>
-		<hr class="uk-divider-icon">
-		<form>
-			<input id="song" class="uk-input" type="text" placeholder="Paste your YT link">
-			<input type="submit" id="addMusic" class="uk-align-center uk-width-1-2 uk-text-large uk-text-capitalize uk-button uk-button-danger button" value="Add IT !">
-		</form>
-	</div>
-</div>
 	<script>
 		ROLE = 1;
 	</script>
