@@ -13,47 +13,47 @@
 		button{border-radius: 10px!important;}
 	</style>
 </head>
-<body>
-	<div uk-grid>
-		<div class="uk-align-center uk-width-1-2 uk-background-primary">
-			<p class="uk-text-center uk-text-large uk-text-capitalize" style="color: white">hub playlist</p>
+	<body>
+		<div uk-grid>
+			<div class="uk-align-center uk-width-1-1 uk-background-primary">
+				<p class="uk-text-center uk-text-large uk-text-capitalize" style="color: white; font-size: 4em">Innovation Hub Playlist</p>
+				</div>
+			</div>
+			<div uk-grid>
+				<hr class="uk-divider-icon uk-width-1-2 uk-align-center">
+			</div>
+			<div uk-grid>
+				<div class="uk-card uk-card-default uk-align-center uk-width-1-2" id="songs">
+
+				</div>
+			</div>
+			<div uk-grid>
+				<div class="uk-align-center">
+				<p class="uk-text-small">
+					Built for the Epitech Innovation Hub
+				</p>
 			</div>
 		</div>
 		<div uk-grid>
-			<hr class="uk-divider-icon uk-width-1-2 uk-align-center">
+			<button uk-toggle="target: #addSong" class="uk-align-center uk-width-1-2 uk-text-large uk-text-capitalize uk-button uk-button-primary">
+				add song
+			</button>
 		</div>
-		<div uk-grid>
-			<div class="uk-card uk-card-default uk-align-center uk-width-1-2" id="songs">
-
+		
+		<div id="addSong" uk-modal>
+			<div class="uk-modal-dialog uk-modal-body">
+				<button class="uk-modal-close-default" type="button" uk-close></button>
+				<h2 class="uk-modal-title">Add your song to the playlist</h2>
+				<hr class="uk-divider-icon">
+				<form>
+					<input id="song" class="uk-input" type="text" placeholder="Paste your YT link">
+					<input type="submit" id="addMusic" class="uk-align-center uk-width-1-2 uk-text-large uk-text-capitalize uk-button uk-button-primary button" value="Add IT !">
+				</form>
 			</div>
 		</div>
-		<div uk-grid>
-			<div class="uk-align-center">
-			<p class="uk-text-small">
-				Built by Bastien HUGON / Antoine VIVIES
-			</p>
-		</div>
-	</div>
-	<div uk-grid>
-		<button uk-toggle="target: #addSong" class="uk-align-center uk-width-1-2 uk-text-large uk-text-capitalize uk-button uk-button-danger">
-			add song
-		</button>
-	</div>
-</body>
-
-<div id="addSong" uk-modal>
-	<div class="uk-modal-dialog uk-modal-body">
-		<button class="uk-modal-close-default" type="button" uk-close></button>
-		<h2 class="uk-modal-title">Add your song !</h2>
-		<hr class="uk-divider-icon">
-		<form>
-			<input id="song" class="uk-input" type="text" placeholder="Paste your YT link">
-			<input type="submit" id="addMusic" class="uk-align-center uk-width-1-2 uk-text-large uk-text-capitalize uk-button uk-button-danger button" value="Add IT !">
-		</form>
-	</div>
-</div>
+	</body>
 	<script>
-		ROLE = 1;
+		ROLE = 0;
 	</script>
 	<script src="/assets/api.js"></script>
 	<script src="/assets/js/refresh.js"></script>

@@ -32,6 +32,7 @@ function updateMusic()
 				render +='<hr class="uk-divider-icon">';
 			
 			renders[index] = render;
+			console.log(render);
 			$("#songs").append(render);
 		});
 		i++;

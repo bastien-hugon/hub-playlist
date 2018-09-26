@@ -6,12 +6,13 @@ var crypto = require('crypto');
  */
 var music = [];
 var history = [];
+var title = "NO EVENT";
 
 io.on('connection', function (socket) {
 
 	socket.on('pwd', function(pass){
 		var hash = crypto.createHash('sha256').update(pass).digest('base64');
-		socket.emit('pwd', hash == "BgMEpx4tNo19/i1I+qUFURv392zFmyFiQ0jEj2XHDbA=");
+		socket.emit('pwd', hash == "AI58QVGNUtZINunDzzHF8KhXqndjw0o8+PqJPI+sxWk=");
 	});
 
 	socket.on('pause', function(){
@@ -45,6 +46,15 @@ io.on('connection', function (socket) {
 		music.push(tmp);
 		history.push(tmp);
 		io.emit('updateMusic', music);
+	});
+
+	socket.on('getTitle', function(){
+		socket.emit('changeTitle', title);
+	});
+
+	socket.on('setTitle', function(data){
+		title = data;
+		io.emit('changeTitle', title);
 	});
 
 	socket.on('restart', function(){

@@ -2,7 +2,7 @@ var socket = io.connect();
 var music = [];
 var player;
 
-// ROLES: 0 => Normal, 1 => Player, 2 => Admin
+// ROLES: 0 => Normal, 1 => Player, 2 => Admin, 3 => Hub
 
 var tag = document.createElement('script');
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -101,7 +101,32 @@ $('#volume-input').on('change', function () {
 	socket.emit('setVolume', $(this).val());
 });
 
+
 socket.on('setVolume', function(data){
 	if (ROLE == 1)
 		player.setVolume(data);
 });
+
+socket.on('changeTitle', function (data){
+	if (ROLE == 3)
+		$("#title").text(data);
+	else
+		$('#title-input').val(data)
+});
+
+$('#title-input').on('change', function () {
+	socket.emit('setTitle', $(this).val());
+});
+
+if (ROLE == 2 || ROLE == 3)
+	socket.emit('getTitle', true);
+
+socket.on('pwd', function(data){
+	if (!data)
+		window.location.reload();
+})
+
+if (ROLE == 2) {
+	pwd = prompt("Type the admin password");
+	socket.emit("pwd", pwd);
+}
