@@ -16,6 +16,7 @@ function updateMusic() {
 			html +=	'	</div>'
 			html +=	'</div>'
 			html += '</div>'
+			$("#hubsong").html("");
 			$("#hubsong").append(html);
 		});
 	} else {
